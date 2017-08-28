@@ -1,9 +1,10 @@
-class CampaignsController < ApplicationController
+# class CampaignsController < ApplicationController
+class CampaignsController < ProtectedController
   before_action :set_campaign, only: [:show, :update, :destroy]
 
   # GET /campaigns
   def index
-    @campaigns = Campaign.all
+    @campaigns = current_user.campaigns.all
 
     render json: @campaigns
   end
@@ -41,8 +42,9 @@ class CampaignsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_campaign
-      @campaign = Campaign.find(params[:id])
+      @campaign = current_user.campaigns.find(params[:id])
     end
+
 
     # Only allow a trusted parameter "white list" through.
     def campaign_params
