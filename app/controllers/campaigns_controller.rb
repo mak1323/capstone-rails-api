@@ -1,4 +1,3 @@
-# class CampaignsController < ApplicationController
 class CampaignsController < ProtectedController
   before_action :set_campaign, only: [:show, :update, :destroy]
 
@@ -16,7 +15,7 @@ class CampaignsController < ProtectedController
 
   # POST /campaigns
   def create
-    @campaign = Campaign.new(campaign_params)
+    @campaign = current_user.campaigns.build(campaign_params)
 
     if @campaign.save
       render json: @campaign, status: :created, location: @campaign
