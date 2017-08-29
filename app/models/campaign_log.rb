@@ -1,3 +1,3 @@
 class CampaignLog < ApplicationRecord
-  belongs_to :campaign_id
+  belongs_to :campaign
 end

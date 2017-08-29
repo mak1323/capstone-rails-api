@@ -1,4 +1,5 @@
-class CampaignLogsController < ApplicationController
+class CampaignLogsController < ProtectedController
+# class CampaignLogsController < ApplicationController
   before_action :set_campaign_log, only: [:show, :update, :destroy]
 
   # GET /campaign_logs
@@ -46,6 +47,6 @@ class CampaignLogsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def campaign_log_params
-      params.require(:campaign_log).permit(:campaign_id_id, :log)
+      params.require(:campaign_log).permit(:campaign_id, :log, :title)
     end
 end
