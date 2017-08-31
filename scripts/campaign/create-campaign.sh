@@ -10,7 +10,8 @@ curl "${API}${URL_PATH}" \
   --data '{
     "campaign": {
       "user_id": "'"${ID}"'",
-      "name": "'"${NAME}"'"
+      "name": "'"${NAME}"'",
+      "completed": "'"${BOOL}"'"
     }
   }'
 
